@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex, Grid, and Box Example</title>
+    <link rel="stylesheet" href="./path/to/Stack.css" />
+    <!-- <script> -->
+    <script src="./path/to/Stack.js">
+    </script>
+    <link rel="stylesheet" href="./path/to/author.css" />
+    <style>
+      /* Flexbox... 1次元のレイアウトを扱うためのツール。水平・垂直方向のアイテムの配置 */
+      /* Flexコンテナー（親要素）、Flexアイテム（小要素） */
+      .flex-container {
+        /* 小要素を横並びにする */
+        display: flex;
+        /* 小要素をインライン要素として横並びにする */
+        /* display: inline-flex; */
+
+        /* 小要素を水平方向に並べる */
+        justify-content: center;
+        /* 小要素を垂直方向に並べる */
+        align-items: center;
+      }
+
+      .flex-item {
+        flex: 0.1;
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+      }
+
+      /* Grid... 2次元（行と列）のレイアウトシステムを提供する */
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* 2列を作成し、2つ目の列は1つ目の2倍の幅 */
+        grid-template-rows: 50px 50px; /* 各行の高さを50pxに設定 */
+        gap: 10px; /* グリッドアイテム間のギャップ */
+      }
+
+      .grid-item {
+        background-color: #e0e0e0; /* グリッドアイテムの背景色 */
+        padding: 10px;
+        text-align: center; /* グリッドアイテム内のテキストを中央に配置。インラインレベルコンテンツの水平方向に配置を設定。 */
+      }
+
+      /* Box... 全てのHTML要素を囲むボックスとして考えることができる概念。（margin, border, padding, contentが含まれる） */
+      .box {
+        width: 200px; /* コンテンツの幅 */
+        padding: 20px; /* contentとborderの間のスペース */
+        border: 5px solid black; /* 枠線 */
+        margin: 30px; /* boxの外側のスペース */
+        background-color: #f5f5f5; /* boxの背景色 */
+      }
+
+      /* Stack */
+      .stack {
+        display: flex;
+        flex-direction: column;
+        /* フレックスアイテムを先頭に寄せる */
+        justify-content:flex-start;
+        background-color: aquamarine;
+      }
+      /* 直接の子要素に対して、上下のマージンを0に設定 */
+      .stack > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      /* 直接の子要素同士の間に、--space変数で指定されたマージンを設定します。--space変数が未定義の場合は、1remのマージンが設定 */
+      .stack > * + * {
+        margin-top: var(--space, 1.5rem);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flexbox -->
+    <div class="flex-container">
+      <div class="flex-item">Flex 1</div>
+      <div class="flex-item">Flex 2</div>
+      <div class="flex-item">Flex 3</div>
+      <div class="flex-item">Flex 4</div>
+      <div class="flex-item">Flex 5</div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid-container">
+      <div class="grid-item">Grid 1</div>
+      <div class="grid-item">Grid 2</div>
+      <div class="grid-item">Grid 3</div>
+      <div class="grid-item">Grid 4</div>
+      <div class="grid-item">Grid 5</div>
+      <div class="grid-item">Grid 6</div>
+    </div>
+
+    <!-- Box -->
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+  </body>
+
+  <!-- Stack -->
+  <div class="stack">
+    <div>小要素</div>
+    <div>小要素</div>
+    <div>小要素</div>
+  </div>
+  <!-- Debug Book -->
+  <div>
+    <input type="text" name="num1" size="4" />+
+    <input type="text" name="num2" size="4" />=
+    <span class="result"></span>
+    <button type="button">Calculate</button>
+  </div>
+</html>
