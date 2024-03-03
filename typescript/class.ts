@@ -65,6 +65,7 @@ class ClassField {
     // arrow functionで定義した関数におけるthisは、どんな呼び出し方をしても変化しない
     // なのでどんな呼ばれ方をしてもthisはクラスのインスタンスになるため、確実にincrementを呼ぶ
     up = () => {
+        console.log(`this is a ${this}`)
         this.increment
     }
     increment() {
@@ -76,3 +77,16 @@ classField.up()
 console.log(classField.count) // 0
 classField.increment()
 console.log(classField.count) // 1
+
+class Parent {
+    constructor(...args: string[]) {
+        console.log("Parent constructor...:", ...args)
+    }
+}
+class Child extends Parent{
+    constructor(...args: string[]) {
+        super(...args) // 子クラスから親クラスのコンストラクターを呼び出す
+        console.log("Child constructor...:", ...args)
+    }
+}
+const child = new Child("1", "2", "3")
