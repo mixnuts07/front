@@ -5,6 +5,7 @@ export default function CleanerReactArticle() {
         <div>
             <h2>これは <a href="https://zenn.dev/t_keshi/books/you-and-cleaner-react/viewer/preface">You and 120% Cleaner React</a>という記事の内容の写経。Reactの14のアンチパターンと改善案について書いていく。</h2>
             <Chapter2 />
+            <Chapter3 />
         </div>
     )
 }
@@ -65,6 +66,15 @@ function Chapter2() {
                 <input type="text" name='last' value={inputName.last} onChange={handleChange}/>
             </label>
             </div>
+        </div>
+    )
+}
+
+function Chapter3() {
+    return (
+        <div>
+            <h5>コンポーネントの分割を適切に行わず、巨大なコンポーネントを作ってしまうこと。変更容易性の天敵。</h5>
+
         </div>
     )
 }
