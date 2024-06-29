@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 
 export default function CleanerReactArticle() {
     return (
@@ -36,16 +36,10 @@ function Chapter2() {
     function handleLastNameChange(e: React.ChangeEvent<HTMLInputElement>) {
         setLastName(e.target.value)
     }
-    function handleBothFirstNameChange(e:React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setInputName({
             ...inputName,
-            first: e.target.value
-        })
-    }
-    function handleBothLastNameChange(e:React.ChangeEvent<HTMLInputElement>) {
-        setInputName({
-            ...inputName,
-            last: e.target.value
+            [e.target.name]: e.target.value
         })
     }
     return (
@@ -64,11 +58,11 @@ function Chapter2() {
             </label>
             <label>
                 first Name is : {inputName.first}
-                <input type="text" value={inputName.first} onChange={handleBothFirstNameChange}/>
+                <input type="text" name='first' value={inputName.first} onChange={handleChange}/>
             </label>
             <label>
                 Last Name is : {inputName.last}
-                <input type="text" value={inputName.last} onChange={handleBothLastNameChange}/>
+                <input type="text" name='last' value={inputName.last} onChange={handleChange}/>
             </label>
             </div>
         </div>
